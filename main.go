@@ -8,7 +8,10 @@ import (
 )
 
 func main() {
-	TestMqtt()
+	for {
+
+		TestMqtt()
+	}
 }
 func TestMqtt() {
 	var (
@@ -26,7 +29,7 @@ func TestMqtt() {
 	go func() {
 		err := client.Subscribe(func(c *Client, msg *Message) {
 			fmt.Printf("接收到消息: %+v \n", msg)
-			wg.Done()
+			//wg.Done()
 		}, 1, "news")
 
 		if err != nil {
